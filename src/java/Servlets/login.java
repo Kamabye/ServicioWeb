@@ -1,3 +1,5 @@
+package Servlets;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -23,27 +25,22 @@ import javax.servlet.http.HttpSession;
  *
  * @author Juan Carlos
  */
-@WebServlet(name = "login",
-        urlPatterns = {"/login"},
-        initParams = {
-            @WebInitParam(name = "parametro1", value = "Valor1")
-            ,
- @WebInitParam(name = "parametro2", value = "Valor2")})
+@WebServlet(name = "login", urlPatterns = {"/login"}, initParams = {
+    @WebInitParam(name = "parametro1", value = "Valor1")
+    ,@WebInitParam(name = "parametro2", value = "Valor2")})
 public class login extends HttpServlet {
+
     private Map<String, String> mapaDeParametrosDeConfiguracion = new ConcurrentHashMap<String, String>();
 
     @Override
     public void init(ServletConfig config) {
-        Enumeration<String> nombresParametros
-                = config.getInitParameterNames();
+        Enumeration<String> nombresParametros = config.getInitParameterNames();
         while (nombresParametros.hasMoreElements()) {
-            String nombreParametro
-                    = nombresParametros.nextElement();
-            mapaDeParametrosDeConfiguracion.put(nombreParametro,
-                    config.getInitParameter(nombreParametro));
+            String nombreParametro = nombresParametros.nextElement();
+            mapaDeParametrosDeConfiguracion.put(nombreParametro, config.getInitParameter(nombreParametro));
         }
     }
-    
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -53,8 +50,7 @@ public class login extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String nuevoAtributo = request.getParameter("parametro");
         String valor = request.getParameter("valor");
         String action = request.getParameter("accion");
@@ -65,7 +61,7 @@ public class login extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet login</title>");            
+            out.println("<title>Servlet login</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet login at " + request.getContextPath() + "</h1>");
@@ -73,14 +69,12 @@ public class login extends HttpServlet {
             Enumeration<String> nombresDeCabeceras = request.getHeaderNames();
             while (nombresDeCabeceras.hasMoreElements()) {
                 String cabecera = nombresDeCabeceras.nextElement();
-                out.println("<li><b>" + cabecera + ": </b>"
-                        + request.getHeader(cabecera) + "</li>");
+                out.println("<li><b>" + cabecera + ": </b>" + request.getHeader(cabecera) + "</li>");
             }
-            
+
             Set<String> param = mapaDeParametrosDeConfiguracion.keySet();
             for (String h : param) {
-                out.println("<li>" + h + ": "
-                        + mapaDeParametrosDeConfiguracion.get(h) + "</li>");
+                out.println("<li>" + h + ": " + mapaDeParametrosDeConfiguracion.get(h) + "</li>");
             }
 
             out.println("</ul>");
@@ -93,11 +87,9 @@ public class login extends HttpServlet {
                 out.println("<ul>");
                 Enumeration<String> nombresDeAtributos = s.getAttributeNames();
                 while (nombresDeAtributos.hasMoreElements()) {
-                    String atributo
-                            = nombresDeAtributos.nextElement();
-                    out.println("<li><b>" + atributo + ": </b>"
-                            + s.getAttribute(atributo) + "</li>");
-            }
+                    String atributo = nombresDeAtributos.nextElement();
+                    out.println("<li><b>" + atributo + ": </b>" + s.getAttribute(atributo) + "</li>");
+                }
             }
             out.println(request.getQueryString());
             out.println("</body>");
@@ -115,8 +107,7 @@ public class login extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request, response);
     }
 
@@ -129,8 +120,7 @@ public class login extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request, response);
     }
 
