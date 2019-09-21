@@ -6,15 +6,14 @@ package Servlets;
  * and open the template in the editor.
  */
 
+import Beans.Item;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Enumeration;
 import java.util.Map;
-import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -25,10 +24,10 @@ import javax.servlet.http.HttpSession;
  *
  * @author Juan Carlos
  */
-@WebServlet(name = "login", urlPatterns = {"/login"}, initParams = {
-    @WebInitParam(name = "parametro1", value = "Valor1")
-    ,@WebInitParam(name = "parametro2", value = "Valor2")})
-public class login extends HttpServlet {
+
+@WebServlet(name = "logear", urlPatterns = {"/logear"})
+
+public class logear extends HttpServlet {
 
     private Map<String, String> mapaDeParametrosDeConfiguracion = new ConcurrentHashMap<String, String>();
 
@@ -66,17 +65,16 @@ public class login extends HttpServlet {
             out.println("<body>");
             out.println("<h1>Servlet login at " + request.getContextPath() + "</h1>");
             out.println("<ul>");
-            Enumeration<String> nombresDeCabeceras = request.getHeaderNames();
-            while (nombresDeCabeceras.hasMoreElements()) {
-                String cabecera = nombresDeCabeceras.nextElement();
-                out.println("<li><b>" + cabecera + ": </b>" + request.getHeader(cabecera) + "</li>");
+            Enumeration<String> parameterNames = request.getParameterNames();
+            while (parameterNames.hasMoreElements()) {
+                String cabecera = parameterNames.nextElement();
+                out.println("<li><b>" + cabecera + ": </b>" + request.getParameter(cabecera) + "</li>");
             }
-
-            Set<String> param = mapaDeParametrosDeConfiguracion.keySet();
-            for (String h : param) {
-                out.println("<li>" + h + ": " + mapaDeParametrosDeConfiguracion.get(h) + "</li>");
-            }
-
+            
+            Item item = new Item();
+            request.setAttribute("atribAlumn", item);
+            request.getRequestDispatcher(
+                    "/muestraDatos.jsp").forward(request, response);
             out.println("</ul>");
             HttpSession s = request.getSession();
             if (action.equals("invalidar")) {
