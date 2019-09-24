@@ -50,49 +50,10 @@ public class logear extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String nuevoAtributo = request.getParameter("parametro");
-        String valor = request.getParameter("valor");
-        String action = request.getParameter("accion");
 
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet login</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet login at " + request.getContextPath() + "</h1>");
-            out.println("<ul>");
-            Enumeration<String> parameterNames = request.getParameterNames();
-            while (parameterNames.hasMoreElements()) {
-                String cabecera = parameterNames.nextElement();
-                out.println("<li><b>" + cabecera + ": </b>" + request.getParameter(cabecera) + "</li>");
-            }
-            
-            Item item = new Item();
-            request.setAttribute("atribAlumn", item);
-            request.getRequestDispatcher(
-                    "/muestraDatos.jsp").forward(request, response);
-            out.println("</ul>");
-            HttpSession s = request.getSession();
-            if (action.equals("invalidar")) {
-                s.invalidate();
-                out.println("<h1>Sesion invalidada:</h1>");
-            } else {
-                s.setAttribute(nuevoAtributo, valor);
-                out.println("<ul>");
-                Enumeration<String> nombresDeAtributos = s.getAttributeNames();
-                while (nombresDeAtributos.hasMoreElements()) {
-                    String atributo = nombresDeAtributos.nextElement();
-                    out.println("<li><b>" + atributo + ": </b>" + s.getAttribute(atributo) + "</li>");
-                }
-            }
-            out.println(request.getQueryString());
-            out.println("</body>");
-            out.println("</html>");
-        }
+        Item item = new Item();
+        request.setAttribute("atribAlumn", item);
+        request.getRequestDispatcher("/dashboard.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

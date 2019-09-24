@@ -3,7 +3,7 @@
     Created on : 18/09/2019, 11:27:31 PM
     Author     : Juan Carlos
 --%>
-
+<%@ page import="Servlets.logear" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -22,14 +22,14 @@
                     <div class="text-center">
                         <img src="images/optometry-logo.png" class="img-fluid">
                     </div>
-                    <form>
+                    <form action="logear" method="post">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Usuario</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <input name="usuario" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Contraseña</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1">
+                            <input name="password" type="password" class="form-control" id="exampleInputPassword1">
                         </div>
                         <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
                     </form>
