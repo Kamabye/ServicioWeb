@@ -22,14 +22,14 @@
                     <div class="text-center">
                         <img src="images/optometry-logo.png" class="img-fluid">
                     </div>
-                    <form action="logear" method="post">
+                    <form action="dashboard.htm" method="post">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Usuario</label>
-                            <input name="usuario" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <input name="usuario" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Contraseña</label>
-                            <input name="password" type="password" class="form-control" id="exampleInputPassword1">
+                            <input name="password" type="password" class="form-control">
                         </div>
                         <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
                     </form>
