@@ -24,7 +24,7 @@ public class UsuariosDAO implements Controller {
     public ModelAndView handleRequest(HttpServletRequest hsr, HttpServletResponse hsr1) throws Exception {
         ModelAndView mv = new ModelAndView("dashboard");
         String mensaje= "Detalles de todos los usuarios";
-        /*try{
+        try{
             Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             List resultados = session.createQuery("from Usuarios").list();
@@ -33,7 +33,7 @@ public class UsuariosDAO implements Controller {
         }
         catch(HibernateException e){
             e.printStackTrace();
-        }*/
+        }
         mv.addObject("mensaje",mensaje);
         return mv;
     }

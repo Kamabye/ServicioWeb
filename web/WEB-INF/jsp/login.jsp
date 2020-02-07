@@ -22,7 +22,7 @@
                     <div class="text-center">
                         <img src="images/optometry-logo.png" class="img-fluid">
                     </div>
-                    <form action="dashboard.htm" method="post">
+                    <form action="dashboard.html" method="post">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Usuario</label>
                             <input name="usuario" class="form-control">

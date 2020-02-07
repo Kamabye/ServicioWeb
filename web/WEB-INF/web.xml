@@ -7,9 +7,6 @@
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
-    <welcome-file-list>
-        <welcome-file>redirect.jsp</welcome-file>
-    </welcome-file-list>
     <session-config>
         <session-timeout>
             30
@@ -32,4 +29,10 @@
         <servlet-name>logear</servlet-name>
         <url-pattern>/logear</url-pattern>
     </servlet-mapping>
+    
+    <!-- Éste tag especifica a la aplicación web que éste archivo es el primero en cargar
+        siempre que se accese a la url del dominio -->
+    <welcome-file-list>
+        <welcome-file>redirect.jsp</welcome-file>
+    </welcome-file-list>
 </web-app>

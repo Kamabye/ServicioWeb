@@ -88,7 +88,7 @@ public class logear extends HttpServlet {
      */
     @Override
     public String getServletInfo() {
-        return "Short description";
+        return "ServletInfo"+this.toString();
     }// </editor-fold>
 
 }

@@ -17,14 +17,14 @@
     </head>
     <body>
         <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-            <h5 class="my-0 mr-md-auto font-weight-normal">Company name</h5>
+            <h5 class="my-0 mr-md-auto font-weight-normal">Nombre de la Empresa</h5>
             <nav class="my-2 my-md-0 mr-md-3">
                 <a class="p-2 text-dark" href="#">Features</a>
                 <a class="p-2 text-dark" href="#">Enterprise</a>
                 <a class="p-2 text-dark" href="#">Support</a>
                 <a class="p-2 text-dark" href="#">Pricing</a>
             </nav>
-            <a class="btn btn-outline-primary" href="login.htm">Iniciar Sesión</a>
+            <a class="btn btn-outline-primary" href="login.html">Iniciar Sesión</a>
         </div>
 
         <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
@@ -83,10 +83,6 @@
 
             <footer class="pt-4 my-md-5 pt-md-5 border-top">
                 <div class="row">
-                    <div class="col-12 col-md">
-                        <img class="mb-2" src="{{ site.baseurl }}/docs/{{ site.docs_version }}/assets/brand/bootstrap-solid.svg" alt="" width="24" height="24">
-                        <small class="d-block mb-3 text-muted">&copy; 2017-{{ site.time | date: "%Y" }}</small>
-                    </div>
                     <div class="col-6 col-md">
                         <h5>Features</h5>
                         <ul class="list-unstyled text-small">
@@ -119,9 +115,5 @@
                 </div>
             </footer>
         </div>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
     </body>
 </html>

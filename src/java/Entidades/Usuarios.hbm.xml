@@ -3,16 +3,16 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 28/09/2019 11:56:12 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="Entidades.Usuarios" table="usuarios" catalog="optica_db" optimistic-lock="version">
+    <class name="Entidades.Usuarios" table="usuarios" catalog="webapp" optimistic-lock="version">
         <id name="idUsuario" type="java.lang.Integer">
             <column name="idUsuario" />
             <generator class="identity" />
         </id>
         <property name="usuario" type="string">
-            <column name="usuario" length="20" not-null="true" unique="true" />
+            <column name="usuario" length="50" not-null="true" unique="true" />
         </property>
         <property name="password" type="string">
-            <column name="password" length="100" not-null="true" />
+            <column name="password" length="10" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>

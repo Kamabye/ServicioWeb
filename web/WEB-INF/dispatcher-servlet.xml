@@ -23,12 +23,13 @@
     -->
     
     <bean class="Controladores.UsuariosDAO" id="idUsuario"/>
+    
     <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">
             <props>
                 <prop key="index.html">indexController</prop>
-                <prop key="dashboard.html">idUsuario</prop>
-                <prop key="login.html">login</prop>
+                <prop key="login.html">loginController</prop>
+                <prop key="dashboard.html">dashboardController</prop>
             </props>
         </property>
     </bean>
@@ -41,8 +42,11 @@
     <bean name="indexController"
           class="org.springframework.web.servlet.mvc.ParameterizableViewController"
           p:viewName="index" />
-    <bean name="login"
+    <bean name="loginController"
           class="org.springframework.web.servlet.mvc.ParameterizableViewController"
           p:viewName="login" />
+    <bean name="dashboardController"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="dashboard" />
 
 </beans>

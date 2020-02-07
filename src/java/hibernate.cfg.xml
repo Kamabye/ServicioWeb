@@ -41,11 +41,12 @@ Contributor(s):
 -->
 <hibernate-configuration>
   <session-factory>
+    <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/webapp</property>
+    <property name="hibernate.connection.username">webapp</property>
+    <property name="hibernate.connection.password">Agente@07</property>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/optica_db</property>
-    <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password">root</property>
+    <property name="hibernate.show_sql">true</property>
     <mapping resource="Entidades/Usuarios.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
